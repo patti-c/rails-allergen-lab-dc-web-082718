@@ -1,0 +1,17 @@
+<h1>Ingredient: <%=@ingredient.name%></h1>
+
+<h2>Recipes</h2>
+
+<ul>
+  <% @ingredient.recipes.each do |recipe|%>
+    <%= link_to recipe.name, recipe_path(recipe) %>
+  <%end%>
+</ul>
+
+<h2>Allergic Users</h2>
+
+<ul>
+  <% @ingredient.users.each do |user|%>
+    <%= link_to user.name, user_path(user) %>
+  <%end%>
+</ul>

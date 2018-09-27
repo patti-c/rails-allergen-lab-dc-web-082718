@@ -1,0 +1,17 @@
+<h1>Recipes Index</h1>
+
+<h2><%=link_to "Create a Recipe", new_recipe_path%></h2>
+
+<h3>Order by:</h3>
+<%= form_tag('/recipes', method: 'get') do %>
+  Ascending: <%= check_box_tag('order[ascending]')  %>
+  Descending: <%= check_box_tag('order[descending]')  %>
+  <br>
+  <%= submit_tag %>
+<% end %>
+
+<ul>
+<% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+<% end %>
+</ul>
